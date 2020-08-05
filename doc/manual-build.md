@@ -130,5 +130,25 @@ apt-get install software-properties-common
 We can get the whole lists of packages that include in Ubuntu Kylin from [UbuntuKylin seeds](https://people.canonical.com/~ubuntu-archive/seeds/ubuntukylin.focal/desktop). Install the entire Ubuntu Kylin suite, not just UKUI.
 
 ```bash
-apt-get install avahi-autoipd network-manager-gnome network-manager-pptp-gnome libproxy1-plugin-gsettings libproxy1-plugin-networkmanager ppp pppconfig pppoeconf kylin-nm net-tools mate-notification-daemon mate-terminal im-config fcitx fcitx-frontend-gtk2 fcitx-frontend-gtk3 fcitx-frontend-qt5 fcitx-ui-classic fcitx-ui-qimpanel fcitx-table fcitx-module-cloudpinyin fcitx-googlepinyin apport-gtk whoopsie thunderbird thunderbird-gnome-support lightdm app-install-data-partner transmission-gtk system-config-printer baobab gnome-system-log gnome-font-viewer gucharmap  language-selector-gnome firefox xul-ext-ubufox rhythmbox software-properties-gtk ubuntu-release-upgrader-gtk update-manager update-notifier yelp zenity xdg-utils xdg-user-dirs xdg-user-dirs-gtk pulseaudio pulseaudio-module-bluetooth gvfs-bin gvfs-fuse gnome-disk-utility remmina shotwell deja-dup xdiagnose libcanberra-pulse ubuntu-kylin-software-center gnome-keyring seahorse libpam-gnome-keyring gnupg-agent ubuntu-artwork ubuntu-sounds gnome-session-canberra dmz-cursor-theme fonts-noto fonts-noto-color-emoji ubuntu-settings ubuntukylin-default-settings gstreamer1.0-alsa gstreamer1.0-plugins-base-apps gstreamer1.0-pulseaudio  gnome-accessibility-themes orca onboard brltty xcursor-themes speech-dispatcher mousetweaks at-spi2-core libatk-adaptor doc-base ubuntu-kylin-docs ubuntukylin-desktop libwmf0.2-7-gtk ukui-greeter youker-assistant ubuntukylin-wallpapers ubuntukylin-keyring firefox-locale-zh-hans thunderbird-locale-zh-hans thunderbird-locale-zh-cn ubuntukylin-theme indicator-china-weather ukui-desktop-environment  ukui-menu ukui-session-manager ukui-control-center ukui-screensaver peony ukui-media ukui-panel ukui-sidebar ukui-settings-daemon ukui-power-manager kylin-display-switch ukui-window-switch kylin-burner kylin-video ukui-polkit qt5-ukui-platformtheme mate-calc pluma mate-system-monitor atril kylin-user-guide libfprint-dev peony-extensions  ukui-biometric-manager ukui-keyring ukui-system-monitor ukui-kwin #ukwm ukui-biometric-auth biometric-authentication
+apt-get install avahi-autoipd network-manager-gnome network-manager-pptp-gnome libproxy1-plugin-gsettings \
+libproxy1-plugin-networkmanager ppp pppconfig pppoeconf kylin-nm net-tools mate-notification-daemon \
+mate-terminal im-config fcitx fcitx-frontend-gtk2 fcitx-frontend-gtk3 fcitx-frontend-qt5 fcitx-ui-classic \
+fcitx-ui-qimpanel fcitx-table fcitx-module-cloudpinyin fcitx-googlepinyin apport-gtk whoopsie thunderbird \
+thunderbird-gnome-support lightdm app-install-data-partner transmission-gtk system-config-printer baobab \
+gnome-system-log gnome-font-viewer gucharmap  language-selector-gnome firefox xul-ext-ubufox rhythmbox \
+software-properties-gtk ubuntu-release-upgrader-gtk update-manager update-notifier yelp zenity xdg-utils \
+xdg-user-dirs xdg-user-dirs-gtk pulseaudio pulseaudio-module-bluetooth gvfs-bin gvfs-fuse gnome-disk-utility \
+remmina shotwell deja-dup xdiagnose libcanberra-pulse ubuntu-kylin-software-center gnome-keyring seahorse \
+libpam-gnome-keyring gnupg-agent ubuntu-artwork ubuntu-sounds gnome-session-canberra dmz-cursor-theme fonts-noto \
+fonts-noto-color-emoji ubuntu-settings ubuntukylin-default-settings gstreamer1.0-alsa \
+gstreamer1.0-plugins-base-apps gstreamer1.0-pulseaudio  gnome-accessibility-themes orca onboard brltty \
+xcursor-themes speech-dispatcher mousetweaks at-spi2-core libatk-adaptor doc-base ubuntu-kylin-docs \
+ubuntukylin-desktop libwmf0.2-7-gtk ukui-greeter youker-assistant ubuntukylin-wallpapers ubuntukylin-keyring \
+firefox-locale-zh-hans thunderbird-locale-zh-hans thunderbird-locale-zh-cn ubuntukylin-theme \
+indicator-china-weather ukui-desktop-environment  ukui-menu ukui-session-manager ukui-control-center \
+ukui-screensaver peony ukui-media ukui-panel ukui-sidebar ukui-settings-daemon ukui-power-manager \
+kylin-display-switch ukui-window-switch kylin-burner kylin-video ukui-polkit qt5-ukui-platformtheme \
+mate-calc pluma mate-system-monitor atril kylin-user-guide libfprint-dev peony-extensions  \
+ukui-biometric-manager ukui-keyring ukui-system-monitor ukui-kwin \
+#ukwm ukui-biometric-auth biometric-authentication
 ```
