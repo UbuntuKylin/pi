@@ -1,2 +1,2 @@
-LABEL=writable  		/	 	        ext4	defaults	    0 	0
-LABEL=system-boot       /boot/firmware  vfat    defaults        0   1
+LABEL=writable 		/ 	        ext4	defaults	0	0
+LABEL=system-boot       /boot/firmware  vfat    defaults        0	1
