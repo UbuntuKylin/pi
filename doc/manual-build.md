@@ -63,7 +63,7 @@ After the base file system has been built, the next steps need to be done in the
 
 ### Mounting the necessary filesystems
 
-Follow the installation documentation for [gentoo](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base) as a reference. In a few moments, the Linux root will be changed towards the new location. To make sure that the new environment works properly, certain filesystems need to be made available there as well.
+Follow the [installation documentation for gentoo] as a reference. In a few moments, the Linux root will be changed towards the new location. To make sure that the new environment works properly, certain filesystems need to be made available there as well.
 
 The filesystems that need to be made available are:
 
@@ -81,9 +81,11 @@ mount --rbind /dev ukfs/dev;
 mount --make-rslave ukfs/dev;
 ```
 
+[installation documentation for gentoo]: https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base
+
 ### Copy APT data sources file
 
-`apt` will retrieve the repository data from the url that specified in `sources.list`. You can copy [data/etc/apt/sources.list](https://github.com/ukui/pi/blob/master/data/etc/apt/sources.list) to `ukfs/etc/apt/sources.list`.
+`apt` will retrieve the repository data from the url that specified in `sources.list`. You can copy [data/etc/apt/sources.list] to `ukfs/etc/apt/sources.list`.
 
 Now, you can `chroot` to the `ukfs/`, and modify the `bash` prompt.
 
@@ -107,6 +109,12 @@ apt-get install linux-raspi2; # linux-raspi2 is dummy transitional packages, sam
 apt-get install linux-firmware-raspi2;
 ```
 
+[data/etc/apt/sources.list]: https://github.com/ukui/pi/blob/master/data/etc/apt/sources.list
+
+## Setup uboot
+
+**TODO**
+
 ## Install useful services for raspi
 
 ### openssh-server
@@ -127,7 +135,7 @@ apt-get install software-properties-common
 
 ## Install UKUI desktop environment
 
-We can get the whole lists of packages that include in Ubuntu Kylin from [UbuntuKylin seeds](https://people.canonical.com/~ubuntu-archive/seeds/ubuntukylin.focal/desktop). Install the entire Ubuntu Kylin suite, not just UKUI.
+We can get the whole lists of packages that include in Ubuntu Kylin from [UbuntuKylin seeds]. Install the entire Ubuntu Kylin suite, not just UKUI.
 
 ```bash
 apt-get install avahi-autoipd network-manager-gnome network-manager-pptp-gnome libproxy1-plugin-gsettings \
@@ -152,3 +160,44 @@ mate-calc pluma mate-system-monitor atril kylin-user-guide libfprint-dev peony-e
 ukui-biometric-manager ukui-keyring ukui-system-monitor ukui-kwin \
 #ukwm ukui-biometric-auth biometric-authentication
 ```
+
+[UbuntuKylin seeds]: https://people.canonical.com/~ubuntu-archive/seeds/ubuntukylin.focal/desktop
+
+## General system configuration
+
+After completing the previous work, some configuration of the obtained file system still needs to be done. Mainly includes mounting point setting, user management, network settings and cache cleaning.
+
+### Configure mount
+
+Generate an fstab file, it is recommended to find partitions by label. It is a [fstab template].
+
+[fstab]: https://github.com/ukui/pi/blob/master/data/etc/hosts
+
+### Create normal user
+
+Due to the installation of the UKUI desktop environment, it is now necessary to create a normal user to log in to the X server. The default username and password is `kylin`.
+
+```bash
+useradd kylin --create-home --password "$(openssl passwd -1 "kylin")" --shell /bin/bash --user-group
+usermod -a -G sudo,adm kylin
+```
+
+### Network 
+
+Create `/etc/hosts` for localhost network, It is a [hosts template].
+
+After that, you also need to create the hostname.
+
+```bash
+echo "ubuntukylin" > /etc/hostname
+```
+
+[hosts template]: https://github.com/ukui/pi/blob/master/data/etc/hosts
+
+### Clean cache
+
+As a result of the installation of desktop environment, the file system was huge. It need to clean out some files.
+
+* `/var/cache/apt/archives/` contained the installed packages cache, run `apt clean` clean it.
+* `/tmp/` contained some temporary files, run `rm /tmp/* -rf` clean it.
+* `/root/.bash_history`, it need to be remove after exit `chroot` environment.
