@@ -171,7 +171,7 @@ After completing the previous work, some configuration of the obtained file syst
 
 Generate an fstab file, it is recommended to find partitions by label. It is a [fstab template].
 
-[fstab]: https://github.com/ukui/pi/blob/master/data/etc/hosts
+[fstab template]: https://github.com/ukui/pi/blob/master/data/etc/hosts
 
 ### Create normal user
 
